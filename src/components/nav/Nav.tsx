@@ -29,12 +29,23 @@ export default function ButtonAppBar() {
             OptoX
           </Typography>
           <Button onClick={() => history.push('/login')} color="inherit">
-            Sign in
+            Login
           </Button>
-          <Button color="inherit">Customer</Button>
-          <Button color="inherit">Admin</Button>
-          <Button color="inherit">Optician</Button>
-          <Button color="inherit">Ophtalmologist</Button>
+          <Button onClick={() => history.push('/customer')} color="inherit">
+            Customer
+          </Button>
+          <Button onClick={() => history.push('/admin')} color="inherit">
+            Admin
+          </Button>
+          <Button onClick={() => history.push('/optician')} color="inherit">
+            Optician
+          </Button>
+          <Button
+            onClick={() => history.push('/opthalmologist')}
+            color="inherit"
+          >
+            Ophtalmologist
+          </Button>
         </Toolbar>
       </AppBar>
     </div>
