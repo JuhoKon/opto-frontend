@@ -1,21 +1,20 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { Container, Typography, Box, TextField } from '@material-ui/core'
-import {
-  createMuiTheme,
-  responsiveFontSizes,
-  ThemeProvider,
-} from '@material-ui/core/styles'
+import { Container, Typography } from '@material-ui/core'
 
-let theme = createMuiTheme()
-theme = responsiveFontSizes(theme)
+import Grid from '@material-ui/core/Grid'
+
+import SignInNormal from '../../components/form/SignIn'
+import SignInToken from '../../components/form/TokenSignIn'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    '& > *': {
-      margin: theme.spacing(1),
-      width: '25ch',
-    },
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -39,34 +38,24 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Login() {
   const classes = useStyles()
-
+  const [isNormalSignUpOn, setNormalSignUp] = React.useState(true)
   return (
     <Container maxWidth="lg" className={classes.container}>
-      <ThemeProvider theme={theme}>
-        <Typography className={classes.welcome} variant="h2">
-          Welcome to OptoX!
-        </Typography>
-      </ThemeProvider>
-      <form
-        noValidate
-        autoComplete="off"
-        style={{
-          backgroundColor: 'rgb(37 37 37 / 83%)',
-          minWidth: '400px',
-          minHeight: '400px',
-          padding: '30px',
-          float: 'right',
-          color: 'white',
-          marginTop: '9em',
-        }}
-      >
-        <Typography className={classes.formtext}>Please sign in:</Typography>
-        <br />
-        <TextField id="standard-basic" label="Email" variant="outlined" />
-        <br />
-        <br />
-        <TextField id="standard-basic" label="Password" variant="outlined" />
-      </form>
+      <Grid container spacing={3}>
+        <Grid item xs={6}>
+          <Typography className={classes.welcome} variant="h2">
+            Welcome to OptoX!
+          </Typography>
+        </Grid>
+        <Grid item xs={6}>
+          {isNormalSignUpOn ? (
+            <SignInNormal setNormalSignUp={setNormalSignUp} />
+          ) : (
+            <SignInToken setNormalSignUp={setNormalSignUp} />
+          )}
+        </Grid>
+      </Grid>
     </Container>
   )
 }
+/*    */

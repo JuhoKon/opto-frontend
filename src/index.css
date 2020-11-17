@@ -21,3 +21,7 @@ body,
 #app > div {
   height: 100%;
 }
+
+.MuiAppBar-colorPrimary {
+  background-color: black !important;
+}

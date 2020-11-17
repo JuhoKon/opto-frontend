@@ -18,22 +18,21 @@ export default function App() {
           <Customer />
         </Route>
         <Route path="/Admin">
+          <Nav />
           <Admin />
         </Route>
         <Route path="/Optician">
+          <Nav />
           <Optician />
         </Route>
         <Route path="/Opthalmologist">
+          <Nav />
           <Opthalmologist />
         </Route>
         <Route path="/">
-          <Home />
+          <Login /> {/**TODO: rerouting if not authenthicated, 404 page etc. */}
         </Route>
       </Switch>
     </Router>
   )
-}
-
-function Home() {
-  return <h2>Home</h2>
 }
